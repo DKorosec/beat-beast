@@ -1,0 +1,85 @@
+<html>
+
+<head>
+  <script src="lib/p5.js"></script>
+  <script src="lib/p5.sound.js"></script>
+  <script src="lib/matter.js"></script>
+  <script src="lib/main.js"></script>
+  <style>
+    body {
+      margin: 0
+    }
+
+    #defaultCanvas0 {
+      display: none
+    }
+  </style>
+</head>
+
+<body>
+  <div style="position: relative; height: 100vh; width:100vw;">
+
+    <div id="gameplay"
+      style="display:flex; width: 800px; height:650px; background: brown; flex-direction: column; justify-content: center; align-items: center; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 2;">
+      <h1>BEAT BEAST</h1>
+      <img src="legend.PNG" />
+      <ul>
+        <li><b>Imune to damage</b> activates when you spawn and when you take damage. It lasts for few seconds.</li>
+        <li><b>Shields</b> work as extra HPs. When your HP drops to 0, it will consume 1 shield, to fill back up.</li>
+        <li>Your <b>hp</b> will drop to 0 when <b>hit by a projectile</b> or <b>gradually decrease</b>, when too far
+          away
+          or too close
+          to the
+          <b>beat beast</b>.
+        </li>
+        <ul>
+          <li>
+            The <b>pitch / tempo</b> of the music will guide you to the <b>near perfect distance</b> and also the
+            <b>background
+              color</b> (green =good, red = bad).
+          </li>
+          <li>
+            You will <b>regain HP</b> when in the near perfect distance from the beat beast.
+          </li>
+          <li>
+            <b>WHITE</b> projectiles will hurt you. (they gradually turn to dark and are harder to spot - watchout!)
+          </li>
+          <li>
+            <b>GREEN</b> projectiles will heal you to full HP + 1 shield.
+          </li>
+        </ul>
+        <li>
+          <h3>What are you waiting for? Select a song, start the game and use your mouse to control your character. Beat
+            beast is waiting for you ;)</h3>
+        </li>
+        <p><b>Created @ INOVA IT Game-Jam December 2019 by Dominik Korosec</b></p>
+        <i>(<b>Note:</b> Because game uses experimental browser APIs, it only works as intended in google chrome)</i>
+      </ul>
+      <select id="songs_select">
+        <option value="gorillaz.mp3" selected>gorillaz.mp3</option>
+        <option value="darkside.mp3">darkside.mp3</option>
+        <option value="planet_earth.mp3">planet_earth.mp3</option>
+        <option value="omfg.mp3">omfg.mp3</option>
+        <option value="hold_your_color.mp3">hold_your_color.mp3</option>
+        <option value="muse.mp3">muse.mp3</option>
+        <option value="18.mp3">18.mp3</option>
+        <option value="magic_b4.mp3">magic_b4.mp3</option>
+        <option value="enslaved.mp3">enslaved.mp3</option>
+        <option value="null.mp3">null.mp3</option>
+      </select> <br>
+      <div>
+        <span>Load Custom sound: </span><input style="display:inline" type="file" id="input_audio_file" accept="audio/*"
+          single />
+      </div>
+      <br />
+      <button id="playbtn" style="width:150px" onclick="initGame(false)">PLAY</button>
+    </div>
+    <canvas id="canvas2" style="cursor: none;position: absolute; left: 0; top: 0; z-index: 1;" width="1000px"
+      height="800px"></canvas>
+    <canvas id="canvas" style="background:black;cursor: none;position: absolute; left: 0; top: 0; z-index: 0;"
+      width="1000px" height="800px"></canvas>
+  </div>
+</body>
+<script>main();</script>
+
+</html>
